@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+        <div class="ml-auto mr-auto mt-5">
+            <div class="text-center">
+                <h3>Registro</h3>
+                <br>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="registrationForm">
+                        <div class="form-group">
+                            <label for="email" class="lead">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        @
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="email" placeholder="Email" id="email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="lead">Contraseña</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="key"></fa>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" id="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" class="lead">Confirmar contraseña</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="key"></fa>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" (change)="verifyPassword(registrationForm)" formControlName="confirmPassword" placeholder="Confirmar contraseña" id="confirmPassword">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <button [disabled]="!registrationForm.valid || isLoading" class="btn btn-success" (click)="registerUser(registrationForm)">{{isLoading ? 'Cargando...' : 'Registrar'}}</button>
+                    </div>
+                    <div class="text-center">
+                        <br/> ¿Ya tienes una cuenta?
+                        <br/>
+                        <a (click)="goToLogin()" style="cursor: pointer; color:blue">Inicia Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

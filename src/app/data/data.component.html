@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <div class="ml-auto mr-auto mt-5">
+            <div class="text-center">
+                <h3>Datos Personales</h3>
+                <br>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="dataForm">
+                        <div class="form-group">
+                            <label for="curp" class="lead">CURP</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="align-left"></fa>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="curp" placeholder="CURP">
+                            </div>
+                        </div>
+                        <div class="" *ngIf="hasData">
+                            <span class="alert alert-warning">
+                                <fa name="exclamation-triangle"></fa>Verifica que los datos sean correctos</span>
+                        </div>
+                        <br/>
+                        <div class="form-group" *ngIf="hasData">
+                            <label for="name" class="lead">Nombre</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="align-left"></fa>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="name" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="hasData">
+                            <label for="firstSurname" class="lead">Apellido Paterno</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="align-left"></fa>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="firstSurname" placeholder="Apellido Paterno">
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="hasData">
+                            <label for="secondSurname" class="lead">Apellido Materno</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="align-left"></fa>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="secondSurname" placeholder="Apellido Materno">
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="hasData">
+                            <label for="age" class="lead">Edad</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="align-left"></fa>
+                                    </span>
+                                </div>
+                                <input type="number" class="form-control" formControlName="age" placeholder="Edad">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center" *ngIf="!hasData">
+                        <button [disabled]="isLoading || !dataForm.valid" class="btn btn-success" (click)="generateDataWithCurp(dataForm)">{{isLoading ? 'Buscando...' : 'Buscar datos'}}</button>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row" style="border: blue">
+                            <div class="clearfix" *ngIf="hasData">
+                                <button [disabled]="isSaving" class="btn btn-warning" (click)="cleanDataFields()">
+                                    <fa name="trash"></fa> Limpiar Campos
+                                </button>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="clearfix" *ngIf="hasData">
+                                <button [disabled]="isSaving" class="btn btn-success" (click)="sendDataToServer(dataForm)">
+                                    <fa name="check"></fa>{{isSaving ? 'Guardando...' : 'Confirmar'}}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

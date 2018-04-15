@@ -1,0 +1,36 @@
+<div class="container">
+    <h3 class="text-center mt-5">Tarjetas alcanzables</h3>
+    <label class="lead text-justify">Se recopiló información necesaria con el Buro de Credito y las tarjetas que a continuación se muestran son a las cuales
+        se tiene acceso con un limite de credito igual a:</label>
+    <br/>
+    <div class="text-center">
+        <p>
+            <span class="alert alert-primary">${{creditLimit}} mx</span>
+        </p>
+    </div>
+    <div class="row" *ngFor="let creditCard of creditCards">
+        <div class="ml-auto mr-auto mt-5">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{creditCard.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <p class="card-text text-center">
+                        <label class="lead">
+                            <b>{{creditCard.name}}</b>
+                        </label>
+                        <label class="lead">Credito: ${{creditCard.creditCard}} MX</label>
+                    </p>
+                    <div class="text-center">
+                        <p>
+                            <button [disabled]="isSaving" class="btn btn-primary" (click)="selectCreditCard(creditCard)">{{isSaving ? 'Guardando...' : 'Seleccionar'}}
+                                <fa name="check"></fa>
+                            </button>
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <label style="cursor: pointer;color:blue">Más información...</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

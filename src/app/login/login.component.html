@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="ml-auto mr-auto mt-5">
+            <div class="text-center">
+                <h3>Iniciar Sesión</h3>
+                <br>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="userForm">
+                        <div class="form-group">
+                            <label for="email" class="lead">Email</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        @
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="lead">Contraseña</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <fa name="key"></fa>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" formControlName="password" placeholder="Contraseña" id="password">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                        <button [disabled]="!userForm.valid || isLoging" class="btn btn-success" (click)="loginUser(userForm)">{{isLoging ? 'Iniciando Sesión...' : 'Iniciar Sesión'}}</button>
+                    </div>
+                    <div class="text-center">
+                        <br/> ¿No tienes cuenta?
+                        <br/>
+                        <a (click)="goToSignUp()" style="cursor: pointer; color:blue">Registrate aquí</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

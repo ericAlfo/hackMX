@@ -1,0 +1,20 @@
+<div class="container">
+        <div class="row" *ngFor="let product of products">
+                <div class="ml-auto mr-auto mt-5">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <p class="card-text text-center">
+                                <label class="lead">
+                                    <b>{{product.productName}}</b>
+                                    <b>${{product.price}} MX</b>
+                                    <div class="text-center">
+                                            <span class="btn btn-success"><fa name="check"></fa></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <span class="btn btn-danger"><fa name="trash"></fa></span>
+                                    </div>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
